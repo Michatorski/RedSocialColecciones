@@ -12,7 +12,7 @@ public interface ISocialNetwork {
      * @param username
      * @return post
      */
-    HashMap<String ,Post> getWallPosts (String username) throws UserNotFoundException;
+    TreeSet< Post> getWallPosts (String username) throws UserNotFoundException;
 
     /**
      * Dado un username y una etiqueta, devuelve los posts
@@ -21,7 +21,7 @@ public interface ISocialNetwork {
      * @param tag
      * @return post
      */
-    HashMap<String ,Post> getWallPosts (String username, String tag);
+    TreeSet< Post> getWallPosts (String username, String tag);
 
     /**
      * Dado un username, un mensaje, una fecha y unas etiquetas,
@@ -31,7 +31,7 @@ public interface ISocialNetwork {
      * @param date
      * @return post
      */
-    HashMap<String ,Post> insertPosts (String username, String tag, String date);
+    TreeSet< Post> insertPosts (String username, String tag, String date);
 
     /**
      * Dado un username, busque todos los posts de los que es autor
@@ -39,5 +39,5 @@ public interface ISocialNetwork {
      * @param username
      * @return post
      */
-    HashMap<String ,Post> listPosts (String username);
+    TreeSet< Post> listPosts (String username);
 }

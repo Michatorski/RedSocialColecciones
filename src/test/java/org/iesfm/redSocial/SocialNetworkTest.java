@@ -11,30 +11,61 @@ public class SocialNetworkTest {
    @Test
     public void getWallPostsTetst() throws UserNotFoundException {
 
+       ArrayList<String > trandingTopics = new ArrayList<>();
+       trandingTopics.add("Algo");
         HashMap<String, User> users = new HashMap<>();
-       HashMap<String ,Post>posts = new HashMap<>();
+      TreeSet<Post>posts = new TreeSet<>();
         HashSet<String> tags = new HashSet<>();
 
-       posts.put( "Jose", new Post("Jose", "Hola mundo", "2021-03-04", tags));
-       posts.put("Pablo",  new Post("Pablo", "Adios mundo", "2021-03-04", tags));
+       posts.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
+       posts.add(  new Post("Jose", "Adios mundo", "2021-03-04", tags));
 
 
         users.put("Jose", new User("Jose", posts));
-        users.put("Pablo", new User("Palo", posts));
-        users.put("Manolo", new User("Manolo", posts));
+        users.put("Pablo", new User("Pablo", posts));
 
 
-        SocialNetwork socialNetwork = new SocialNetwork("Twat", users, new ArrayList<>());
+        SocialNetwork socialNetwork = new SocialNetwork("Twat", users, trandingTopics);
 
-       HashMap<String ,Post> username = socialNetwork.getWallPosts("Jose");
+       TreeSet<Post> username = socialNetwork.getWallPosts("Jose");
 
 
-       Map<String ,Post> expectedPost = new HashMap<>();
-       posts.put( "Jose", new Post("Jose", "Hola mundo", "2021-03-04", tags));
-       posts.put("Pablo",  new Post("Pablo", "Adios mundo", "2021-03-04", tags));
+       Set <Post> expectedPost = new TreeSet<>();
+       expectedPost.add(new Post("Jose", "Hola mundo", "2021-03-04", tags));
+       expectedPost.add(  new Post("Jose", "Adios mundo", "2021-03-04", tags));
 
        Assert.assertEquals(expectedPost, username);
    }
+
+   @Test(expected = UserNotFoundException.class)
+    public void getWallPostsUserNotFoundTetst() throws UserNotFoundException {
+
+
+       ArrayList<String > trandingTopics = new ArrayList<>();
+       trandingTopics.add("Algo");
+       HashMap<String, User> users = new HashMap<>();
+      TreeSet<Post>posts = new TreeSet<>();
+        HashSet<String> tags = new HashSet<>();
+
+       posts.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
+       posts.add(  new Post("Jose", "Adios mundo", "2021-03-04", tags));
+
+
+        users.put("Manolo", new User("Jose", posts));
+        users.put("Pablo", new User("Pablo", posts));
+
+
+        SocialNetwork socialNetwork = new SocialNetwork("Twat", users, trandingTopics);
+
+       TreeSet<Post> username = socialNetwork.getWallPosts("Jose");
+
+
+       Set <Post> expectedPost = new TreeSet<>();
+       expectedPost.add(new Post("Jose", "Hola mundo", "2021-03-04", tags));
+       expectedPost.add(  new Post("Jose", "Adios mundo", "2021-03-04", tags));
+
+   }
+
 
 
 }

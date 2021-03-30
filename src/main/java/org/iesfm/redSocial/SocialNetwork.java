@@ -16,7 +16,7 @@ public class SocialNetwork implements ISocialNetwork {
     }
 
     @Override
-    public HashMap<String ,Post> getWallPosts(String username) throws UserNotFoundException {
+    public TreeSet< Post> getWallPosts(String username) throws UserNotFoundException {
        User checkUser = users.get(username);
 
        if (checkUser == null){
@@ -28,11 +28,11 @@ public class SocialNetwork implements ISocialNetwork {
 
 
     @Override
-    public HashMap<String ,Post> getWallPosts(String username, String tag) {
+    public TreeSet< Post> getWallPosts(String username, String tag) {
         User checkUser = users.get(username);
 
         for (User user: users.values()) {
-            if (user.getWall().containsKey(tag)){
+            if (user.getWall().contains(tag)){
 
             }
         }
@@ -41,13 +41,13 @@ public class SocialNetwork implements ISocialNetwork {
     }
 
     @Override
-    public HashMap<String, Post> insertPosts(String user, String tag, String date) {
+    public TreeSet< Post> insertPosts(String user, String tag, String date) {
 
         return null;
     }
 
     @Override
-    public HashMap<String, Post> listPosts(String user) {
+    public TreeSet< Post> listPosts(String user) {
 
         return null;
     }

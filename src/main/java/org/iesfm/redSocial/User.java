@@ -6,9 +6,9 @@ import java.util.TreeSet;
 
 public class User {
     private String username;
-    private HashMap<String, Post> wall;
+    private TreeSet< Post> wall;
 
-    public User(String username, HashMap<String , Post> wall) {
+    public User(String username, TreeSet<Post> wall) {
         this.username = username;
         this.wall = wall;
     }
@@ -21,11 +21,11 @@ public class User {
         this.username = username;
     }
 
-    public HashMap<String ,Post> getWall() {
+    public TreeSet< Post> getWall() {
         return wall;
     }
 
-    public void setWall(HashMap<String ,Post> wall) {
+    public void setWall(TreeSet< Post> wall) {
         this.wall = wall;
     }
 
