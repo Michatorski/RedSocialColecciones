@@ -1,5 +1,7 @@
 package org.iesfm.redSocial;
 
+import org.iesfm.redSocial.exceptions.UserNotFoundException;
+
 import java.util.*;
 
 public class SocialNetwork implements ISocialNetwork {
@@ -14,8 +16,12 @@ public class SocialNetwork implements ISocialNetwork {
     }
 
     @Override
-    public TreeSet<Post> getWallPosts(String username) {
+    public TreeSet<Post> getWallPosts(String username) throws UserNotFoundException {
        User checkUser = users.get(username);
+
+       if (checkUser == null){
+           throw new UserNotFoundException();
+       }
 
         return checkUser.getWall();
     }

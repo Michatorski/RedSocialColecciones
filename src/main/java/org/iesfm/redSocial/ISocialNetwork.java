@@ -1,5 +1,7 @@
 package org.iesfm.redSocial;
 
+import org.iesfm.redSocial.exceptions.UserNotFoundException;
+
 import java.util.TreeSet;
 
 public interface ISocialNetwork {
@@ -9,7 +11,7 @@ public interface ISocialNetwork {
      * @param username
      * @return post
      */
-    TreeSet<Post> getWallPosts (String username);
+    TreeSet<Post> getWallPosts (String username) throws UserNotFoundException;
 
     /**
      * Dado un username y una etiqueta, devuelve los posts

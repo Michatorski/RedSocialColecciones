@@ -1,5 +1,6 @@
 package org.iesfm.redSocial;
 
+import org.iesfm.redSocial.exceptions.UserNotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ public class SocialNetworkTest {
 
 
    @Test
-    public void getWallPostsTetst(){
+    public void getWallPostsTetst() throws UserNotFoundException {
        HashSet<String> tags = new HashSet<>();
 
        posts.add(new Post("Jose", "Hola mundo", "2021-03-04", tags));
