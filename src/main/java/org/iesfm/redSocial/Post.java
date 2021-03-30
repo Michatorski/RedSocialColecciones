@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Post {
+public class Post implements Comparable <Post>{
     private String author;
     private String message;
     private String date;
@@ -16,6 +16,11 @@ public class Post {
         this.message = message;
         this.date = date;
         this.tag = tag;
+    }
+
+    @Override
+    public int compareTo(Post o) {
+        return 0;
     }
 
     public String getAuthor() {
@@ -65,4 +70,6 @@ public class Post {
     public int hashCode() {
         return Objects.hash(author, message, date, tag);
     }
+
+
 }

@@ -1,13 +1,14 @@
 package org.iesfm.redSocial;
 
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.TreeSet;
 
 public class User {
     private String username;
-    private TreeSet<Post> wall;
+    private HashMap<String, Post> wall;
 
-    public User(String username, TreeSet<Post> wall) {
+    public User(String username, HashMap<String , Post> wall) {
         this.username = username;
         this.wall = wall;
     }
@@ -20,11 +21,11 @@ public class User {
         this.username = username;
     }
 
-    public TreeSet<Post> getWall() {
+    public HashMap<String ,Post> getWall() {
         return wall;
     }
 
-    public void setWall(TreeSet<Post> wall) {
+    public void setWall(HashMap<String ,Post> wall) {
         this.wall = wall;
     }
 
