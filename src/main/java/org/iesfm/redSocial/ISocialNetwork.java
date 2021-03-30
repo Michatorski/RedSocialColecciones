@@ -2,7 +2,7 @@ package org.iesfm.redSocial;
 
 import java.util.TreeSet;
 
-public interface IRedSocial {
+public interface ISocialNetwork {
 
     /**
      * Dado un username, devuelve los posts del muro de ese usuario.

@@ -1,14 +1,13 @@
 package org.iesfm.redSocial;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
-public class SocialNetworkNetwork implements ISocialNetwork {
+public class SocialNetwork implements ISocialNetwork {
     private String name;
     private TreeMap<String, User>  users;
     private ArrayList<String > trendingTopics;
 
-    public SocialNetworkNetwork(String name, TreeMap<String, User> users, ArrayList<String> trendingTopics) {
+    public SocialNetwork(String name, TreeMap<String, User> users, ArrayList<String> trendingTopics) {
         this.name = name;
         this.users = users;
         this.trendingTopics = trendingTopics;
@@ -17,9 +16,7 @@ public class SocialNetworkNetwork implements ISocialNetwork {
     @Override
     public TreeSet<Post> getWallPosts(String username) {
        User checkUser = users.get(username);
-        if (checkUser == null) {
-            System.out.println("Post no encontrado");
-        }
+
         return checkUser.getWall();
     }
 
@@ -75,10 +72,10 @@ public class SocialNetworkNetwork implements ISocialNetwork {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SocialNetworkNetwork socialNetwork = (SocialNetworkNetwork) o;
-        return Objects.equals(name, socialNetwork.name) &&
-                Objects.equals(users, socialNetwork.users) &&
-                Objects.equals(trendingTopics, socialNetwork.trendingTopics);
+        SocialNetwork that = (SocialNetwork) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(users, that.users) &&
+                Objects.equals(trendingTopics, that.trendingTopics);
     }
 
     @Override
