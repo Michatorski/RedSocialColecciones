@@ -13,6 +13,8 @@ public class User {
         this.wall = wall;
     }
 
+
+
     public String getUsername() {
         return username;
     }

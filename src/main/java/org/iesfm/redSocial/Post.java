@@ -1,7 +1,6 @@
 package org.iesfm.redSocial;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+
 import java.util.HashSet;
 import java.util.Objects;
 

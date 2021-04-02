@@ -28,28 +28,46 @@ public class SocialNetwork implements ISocialNetwork {
 
 
     @Override
-    public TreeSet< Post> getWallPosts(String username, String tag) {
-        User checkUser = users.get(username);
+    public TreeSet<Post> getPostsByUserAndTag(String username, String tag) throws UserNotFoundException {
 
-        for (User user: users.values()) {
-            if (user.getWall().contains(tag)){
 
+        TreeSet<Post> postsOnWall = new TreeSet<>();
+
+       for( Post postOfUser : getWallPosts(username)){
+            if (postOfUser.getTag().contains(tag)){
+                postsOnWall.add(postOfUser);
             }
-        }
+       }
 
-        return checkUser.getWall();
+        return postsOnWall;
     }
 
     @Override
-    public TreeSet< Post> insertPosts(String user, String tag, String date) {
+    public TreeSet< Post> insertPosts(String  username, String  message, String date, String  tag) throws UserNotFoundException {
 
-        return null;
+
+        TreeSet<Post> postsOnWall = getWallPosts(username);
+        HashSet<String> setTag = new HashSet<>();
+        setTag.add(tag);
+
+        postsOnWall.add(new Post(username, message, date, setTag));
+
+        return postsOnWall;
     }
 
     @Override
-    public TreeSet< Post> listPosts(String user) {
+    public ArrayList<Post> listPosts(String author) throws UserNotFoundException {
 
-        return null;
+       ArrayList<Post> postsList = new ArrayList<>();
+       TreeSet<Post> postsAuthor = new TreeSet<>();
+
+       for (Post post : postsAuthor){
+           if (post.getAuthor().contains(author)){
+               postsList.add(post);
+           }
+       }
+
+        return postsList;
     }
 
     public String getName() {

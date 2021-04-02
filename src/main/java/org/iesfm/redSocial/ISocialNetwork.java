@@ -2,8 +2,7 @@ package org.iesfm.redSocial;
 
 import org.iesfm.redSocial.exceptions.UserNotFoundException;
 
-import java.util.HashMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public interface ISocialNetwork {
 
@@ -21,7 +20,7 @@ public interface ISocialNetwork {
      * @param tag
      * @return post
      */
-    TreeSet< Post> getWallPosts (String username, String tag);
+    TreeSet< Post> getPostsByUserAndTag(String username, String tag) throws UserNotFoundException;
 
     /**
      * Dado un username, un mensaje, una fecha y unas etiquetas,
@@ -31,13 +30,13 @@ public interface ISocialNetwork {
      * @param date
      * @return post
      */
-    TreeSet< Post> insertPosts (String username, String tag, String date);
+    TreeSet< Post> insertPosts (String username, String  author, String date, String  tag) throws UserNotFoundException;
 
     /**
      * Dado un username, busque todos los posts de los que es autor
      * en los diferentes muros y los devuelva en una lista.
-     * @param username
+     * @param author
      * @return post
      */
-    TreeSet< Post> listPosts (String username);
+    ArrayList<Post>  listPosts (String author)  throws UserNotFoundException;
 }
