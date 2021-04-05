@@ -159,7 +159,7 @@ public class SocialNetworkTest {
 
         SocialNetwork socialNetwork = new SocialNetwork("Twat", users, trandingTopics);
 
-        ArrayList<Post> username = socialNetwork.listPosts("Jose");
+        ArrayList<Post> username = socialNetwork.getListPosts("Jose");
 
 
         List <Post> expectedPost = new ArrayList<>();

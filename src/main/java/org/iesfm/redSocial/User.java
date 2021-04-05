@@ -1,5 +1,6 @@
 package org.iesfm.redSocial;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.TreeSet;
@@ -13,7 +14,16 @@ public class User {
         this.wall = wall;
     }
 
+    public ArrayList< Post> getAuthorPost(String author){
+        ArrayList<Post> postsList = new ArrayList<>();
 
+        for ( Post post : wall){
+            if ( post.getAuthor().equals(author)){
+                postsList.add(post);
+            }
+        }
+        return postsList;
+    }
 
     public String getUsername() {
         return username;

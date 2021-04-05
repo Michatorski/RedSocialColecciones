@@ -56,18 +56,13 @@ public class SocialNetwork implements ISocialNetwork {
     }
 
     @Override
-    public ArrayList<Post> listPosts(String author) throws UserNotFoundException {
+    public ArrayList<Post> getListPosts(String username) throws UserNotFoundException {
+    ArrayList<Post> allThePosts = new ArrayList<>();
 
-       ArrayList<Post> postsList = new ArrayList<>();
-       TreeSet<Post> postsAuthor = new TreeSet<>();
-
-       for (Post post : postsAuthor){
-           if (post.getAuthor().contains(author)){
-               postsList.add(post);
-           }
-       }
-
-        return postsList;
+        for(User user : users.values()){
+           allThePosts.addAll(user.getAuthorPost(username));
+        }
+    return allThePosts;
     }
 
     public String getName() {

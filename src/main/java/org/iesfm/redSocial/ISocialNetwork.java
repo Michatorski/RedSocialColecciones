@@ -38,5 +38,5 @@ public interface ISocialNetwork {
      * @param author
      * @return post
      */
-    ArrayList<Post>  listPosts (String author)  throws UserNotFoundException;
+    ArrayList<Post>  getListPosts (String author)  throws UserNotFoundException;
 }
