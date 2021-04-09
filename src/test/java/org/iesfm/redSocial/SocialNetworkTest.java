@@ -142,19 +142,22 @@ public class SocialNetworkTest {
 
         HashMap<String, User> users = new HashMap<>();
 
-        TreeSet<Post> posts = new TreeSet<>();
+        TreeSet<Post> joseWall = new TreeSet<>();
+        TreeSet<Post> pabloWall = new TreeSet<>();
 
         HashSet<String> tags = new HashSet<>();
         tags.add("Texto");
 
-        posts.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
-        posts.add(  new Post("Jose", "Adios mundo", "2021-03-05", tags));
-        posts.add(  new Post("Jose", "12344", "2021-03-04", tags));
-        posts.add(  new Post("Pablo", "Odnum Aloh", "2021-03-04", tags));
+        joseWall.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
+        joseWall.add(  new Post("Jose", "Adios mundo", "2021-03-05", tags));
+        joseWall.add(  new Post("Jose", "12344", "2021-07-07", tags));
+        joseWall.add(  new Post("Pablo", "Odnum Aloh", "2021-04-04", tags));
 
+        pabloWall.add(new Post("Pablo", "Hola mundo", "2021-03-04", tags));
+        pabloWall.add(new Post("Jose", "Adios mundo", "2021-05-01", tags));
 
-        users.put("Jose", new User("Jose", posts));
-        users.put("Pablo", new User("Pablo", posts));
+        users.put("Jose", new User("Jose", joseWall));
+        users.put("Pablo", new User("Pablo", pabloWall));
 
 
         SocialNetwork socialNetwork = new SocialNetwork("Twat", users, trandingTopics);
@@ -163,9 +166,14 @@ public class SocialNetworkTest {
 
 
         List <Post> expectedPost = new ArrayList<>();
+        expectedPost.add(new Post("Jose", "Adios mundo", "2021-05-01", tags));
+
         expectedPost.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
         expectedPost.add(  new Post("Jose", "Adios mundo", "2021-03-05", tags));
-        expectedPost.add(  new Post("Jose", "12344", "2021-03-04", tags));
+        expectedPost.add(  new Post("Jose", "12344", "2021-07-07", tags));
+
+
+
 
         Assert.assertEquals(expectedPost, username);
     }

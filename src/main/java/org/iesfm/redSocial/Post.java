@@ -19,7 +19,7 @@ public class Post implements Comparable <Post>{
 
     @Override
     public int compareTo(Post o) {
-        return 0;
+        return this.date.compareTo(o.getDate());
     }
 
     public String getAuthor() {
@@ -70,5 +70,13 @@ public class Post implements Comparable <Post>{
         return Objects.hash(author, message, date, tag);
     }
 
-
+    @Override
+    public String toString() {
+        return "Post{" +
+                "author='" + author + '\'' +
+                ", message='" + message + '\'' +
+                ", date='" + date + '\'' +
+                ", tag=" + tag +
+                '}';
+    }
 }
