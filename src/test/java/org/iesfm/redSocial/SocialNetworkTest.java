@@ -31,7 +31,7 @@ public class SocialNetworkTest {
 
 
        Set <Post> expectedPost = new TreeSet<>();
-       expectedPost.add(new Post("Jose", "Hola mundo", "2021-03-04", tags));
+       expectedPost.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
        expectedPost.add(  new Post("Jose", "Adios mundo", "2021-03-09", tags));
 
        Assert.assertEquals(expectedPost, username);
@@ -73,7 +73,7 @@ public class SocialNetworkTest {
         ArrayList<String > trandingTopics = new ArrayList<>();
         trandingTopics.add("Algo");
         HashMap<String, User> users = new HashMap<>();
-        TreeSet<Post>posts = new TreeSet<>();
+        TreeSet<Post> posts = new TreeSet<>();
 
         HashSet<String> tagsA = new HashSet<>();
         tagsA.add("Texto");
@@ -149,7 +149,7 @@ public class SocialNetworkTest {
         tags.add("Texto");
 
         joseWall.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
-        joseWall.add(  new Post("Jose", "Adios mundo", "2021-03-05", tags));
+        joseWall.add(  new Post("Jose", "Soida odnum", "2021-03-05", tags));
         joseWall.add(  new Post("Jose", "12344", "2021-07-07", tags));
         joseWall.add(  new Post("Pablo", "Odnum Aloh", "2021-04-04", tags));
 
@@ -169,7 +169,7 @@ public class SocialNetworkTest {
         expectedPost.add(new Post("Jose", "Adios mundo", "2021-05-01", tags));
 
         expectedPost.add(  new Post("Jose", "Hola mundo", "2021-03-04", tags));
-        expectedPost.add(  new Post("Jose", "Adios mundo", "2021-03-05", tags));
+        expectedPost.add(  new Post("Jose", "Soida odnum", "2021-03-05", tags));
         expectedPost.add(  new Post("Jose", "12344", "2021-07-07", tags));
 
 
